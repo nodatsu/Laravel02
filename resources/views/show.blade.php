@@ -85,9 +85,7 @@
         @endif
     @endauth
         </div>
-    
-    
-    
+
     @auth
         @empty($question->user_id)
         
@@ -95,9 +93,9 @@
         
             {{ Form::open(['route' => ['question.reply', ['id' =>  $question->id]]]) }}
                 
-                <div class='form-group textarea'>
+                <div class='form-group'>
                     {{ Form::label('question_show', '返信内容：') }}<br>
-                    {{ Form::textarea('question_reply', null) }}<br>
+                    {{ Form::textarea('question_reply', null, ['rows' => 3, 'cols' => 40]) }}<br>
                 </div>
                 <div class='form-group'>
                     {{ Form::submit('返信する', ['class' => 'btn btn-outline-primary']) }}<br>
@@ -174,9 +172,4 @@
     .center{
         text-align:center;
     }
-    .textarea{
-        width: 100%;
-        height: 75px;
-    }
-    
 </style>
